@@ -2,4 +2,4 @@
 first repository
 
 Hello Everyone,
- I'm new here and tryin to understand how its works :)
+ I'm new here and trying to understand how its works :)
