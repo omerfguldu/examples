@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions</title>
+    <style>
+        body{
+            margin: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        p{
+            line-height: 1.5;
+            font-size: 1.25rem;
+        }
+        div{
+            display: flex;
+            gap: 100px;
+            border: 1px solid #000;
+            width: 38%;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+    <p id="es5ornek1">ES5 Func</br>var toplam = function(x,y){ <br>
+        return x+y;
+        }</br>
+        es5p1.innerHTML += toplam(4,5);
+        </br>
+        // Çıktı = 
+    </p>
+
+    <p id="es6ornek1">ES6 Func </br> let toplames6 = (x,y) => x+y; </br>
+        es6p1.innerHTML += toplames6(8,8);</br>
+        // Çıktı = 
+    </p>
+    </div>
+
+    <div>
+    <p id="es5ornek2">ES5 Func </br> var sayi = function(x){
+        return x*x;
+    }</br>
+    es5p2.innerHTML += sayi(5);</br>
+    // Çıktı = 
+    </p>
+
+    <p id="es6ornek2">ES6 Func </br> let sayies6 = x => x*x; </br>
+        es6p2.innerHTML += sayies6(9);</br>
+        // Çıktı = 
+    </p>
+    </div>
+
+    <script src="arrowfunctions.js"></script>
+</body>
+
+</html>
