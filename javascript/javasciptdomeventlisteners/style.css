@@ -1,0 +1,78 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(
+        205deg,
+        hsl(291deg 87% 30%) 0%,
+        hsl(287deg 85% 30%) 9%,
+        hsl(284deg 83% 29%) 21%,
+        hsl(280deg 82% 28%) 36%,
+        hsl(276deg 81% 27%) 53%,
+        hsl(271deg 80% 26%) 70%,
+        hsl(266deg 79% 25%) 84%,
+        hsl(261deg 79% 24%) 94%,
+        hsl(254deg 79% 23%) 99%,
+        hsl(245deg 80% 21%) 100%
+    );
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border-radius: 25px;
+    gap: 25px;
+}
+
+.header-text{
+    color: hsl(291deg 87% 30%);
+}
+
+.form-submit{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label{
+    font-size: 1.1rem;
+}
+
+input, select{
+    width: 250px;
+    height: 30px;
+}
+
+#btn-submit{
+    display: inline-block;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: hsl(280deg 82% 28%);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#btn-submit:hover{
+    background-color: #ffad14;
+}
