@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter with Func</title>
+    <style>
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 470px;
+            transform: translate(-50% ,-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            border-radius: 25px;
+            box-shadow: 0px 8px 25px 3px rgba(0,0,0,0.58);
+        }
+
+        .buttons{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+            width: 320px;
+            border-top: 1px solid rgba(0,0,0,0.2);
+        }
+
+        button{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        h1{
+            font-size: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="counter-text"></h1>
+        <div class="buttons">
+            <button style="background-color: #165c22;" id="button-increase">+</button>
+            <button style="background-color: #78010f;" id="button-decrease">-</button>
+        </div>   
+    </div> 
+    <script src="counter.js"></script>
+</body>
+</html>
