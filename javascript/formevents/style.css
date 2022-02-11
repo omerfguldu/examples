@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.container-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 400px;
+    height: 400px;
+    background-color: #f8f4e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    box-shadow: 11px 11px 0px 1px #FFA580,11px 11px 0px 3px rgba(0, 0, 0, .7);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+input,textarea{
+    padding: 10px 5px;
+    border: none;
+    border-bottom: 4px solid #000;
+    width: 250px;
+    height: 35px;
+    resize: none;
+    background-color: transparent;
+}
+
+input,textarea::placeholder{  
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 0.9rem;
+}
+
+button{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: #ffa580;
+    /* background-color: #95a4ff; */
+    color: rgba(0, 0, 0, .8);
+    border: 1px solid #000;
+    margin-top: 20px;
+    box-shadow: 3px 3px 1px #95a4ff, 3px 3px 1px 1px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover{
+    background: rgba(0,0,0,1);
+    color: white;
+    border: 1px solid rgba(0,0,0,1);
+}
