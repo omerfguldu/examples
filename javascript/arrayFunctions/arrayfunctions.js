@@ -57,3 +57,145 @@ console.log("array6 --> ", array6)
 console.log("array5 ile array6 birleşimi --> ", array5.concat(array6)) // array5 e array6 yı ekle
 console.log("array6 ile array5 birleşimi --> ", array6.concat(array5)) // array6 ya array5 i ekle
 // iki diziyi birbiri ile birleştirmeyi sağlayan join ile oluşan diziyi yeni bir değişkene atamamız gerekir. Diziler ilk halerinde kalırlar. 
+
+
+// forEach
+// forEach ile dizi elemanlarının yazdırılması
+let array7 = array5.concat(array6)
+console.log(array7)
+array7.forEach(function(item,index){
+    return console.log(`array7[${index}] = ${item}`)
+})
+// forEach ile dizideki elemanlarının toplanması
+let array8 = [5,6,7,8,9,10]
+let toplam = 0
+array8.forEach(function(item){
+    toplam+=item
+})
+console.log(array8)
+console.log(`array8 elemanlarının toplamı => ${toplam}`)
+// forEach
+
+// map()
+
+let array9 = [5,6,7,8,9,10,11,12]
+let toplam2 = 0
+array9.map((item)=>{
+    toplam2+=item
+})
+console.log(array9)
+console.log(`array9 elemanlarının toplamı => ${toplam2}`)
+
+
+// some()
+// dizi içinde 2ye bölünen varsa true yoksa false döner
+// bu dizide 7 kere true 1 kere false döner
+let array10 = [2, 4, 6, 8, 10, 12, 14, 16]
+array10.some(item =>{
+    console.log(item%2==0)
+})
+
+// every()
+// burada tüm değerlerin koşulu sağlaması gerekir ve yalnızca 1 defa true veya false olarak sonucu döner
+// bu array12 de array içinde 5 değeri olduğundan false döner
+let array12 = [2,4,5,6,8,10,11]
+let sonuc = array12.every(item => {
+    return item%2==0
+})
+console.log(sonuc)
+
+// filter()
+// array içerinde yer alan değerleri filtreleyerek yeni bir değişkene atar
+// orijinal dizi bozulmaz
+let array13 = [1,2,3,4,5,6,7,8,9,10]
+console.log(array13)
+let oddNumbers = array13.filter(item => {
+    return item%2!=0
+})
+console.log(oddNumbers)
+let evenNumbers = array13.filter(item => {
+    return item%2==0
+})
+console.log(evenNumbers)
+
+// find()
+// array içerisinde 5 değerini arar. Bulursa 5 değerini döner. Bulamazsa undefined döner.
+// birden fazla 5 olsa da ilk bulduğu 5 değerini döner
+let array14 = array13.slice() // array13'ün değerlerini array14'e kopyaladık
+console.log(array14)
+let numberFive = array14.find((item,index)=>{
+    return item==5
+})
+console.log(numberFive)
+
+// sort()
+// array sort ile diziyi tersten sıralatmak için yazılan fonksiyon
+array15 = array14.slice()
+console.log(array15)
+let sortedArray15 = array15.sort((a,b) => {
+    return b-a
+})
+console.log(sortedArray15)
+
+// reduce()
+// reducer adında bir fonksiyon oluşturduk
+// oluşturulan fonksiyonu parametre olarak alan array.reduce'u çağırdık
+// reduce ile numbers arrayindeki değerler 2.parametre ile beraber toplandı.
+const numbers = [3,4,5,6]
+function reducer(accumulator, number){
+    return accumulator + number
+}
+console.log(numbers)
+console.log(numbers.reduce(reducer, 10))
+
+const numbersSum = array13.slice()
+console.log(numbersSum.reduce(reducer, 0))// bu şekilde de dizi içindeki tüm değerler toplanabilir
+
+// Soru 1 
+let dizi = [2,5,8,11,15,17]
+let carpim2 =1;
+let newdizi = dizi.filter((item) => {
+    return item>10
+})
+newdizi = newdizi.map(item=>{
+    return item*5
+})
+console.log(newdizi)
+
+// Soru 2
+
+let dizi2 = [3,6,9,14,16];
+let dizi3 = [0,1,2,3,4]
+
+// Uygun dizi metotlarını kullanarak, yukarıdaki dizi için aşağıdaki şartları sağlayan myFunction fonksiyonunu yazın.
+// Elemanların arasında 5'ten büyük olan olan bir eleman varsa konsola "Beşten büyük bir eleman mevcut." yoksa "5'ten büyük eleman mevcut değil." yazdır.
+
+function myFunction (dizi2){
+// Kodunuzu buraya yazın.
+    let sonuc = dizi2.some(item => {
+        // if(item>5){
+        //     return item
+        // }
+        return item>5
+    })
+    return sonuc ? "Beşten büyük bir eleman mevcut." : "5'ten büyük eleman mevcut değil."
+}
+
+console.log(`${dizi2} => ${myFunction(dizi2)}`)
+console.log(`${dizi3} => ${myFunction(dizi3)}`)
+
+// Soru 3 
+
+let dizi4 = [5,6,7];
+let dizi5 = [3,3,3];
+let carpimFunc = diziAdi =>{
+    let carpim=1
+    diziAdi.forEach(item => {
+        carpim *= item
+    })
+    console.log(carpim)
+}
+carpimFunc(dizi4)
+carpimFunc(dizi5)
+
+
