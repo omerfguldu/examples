@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tableDiv{
+    height: 50vh;
+    width: 43vw;
+    overflow: auto;
+    border: 1px solid #000;
+    margin: 20px;
+}
+
+#todosTable{
+    margin: 20px;
+    width: 40vw;
+}
+
+th{
+    text-transform: uppercase;
+    background-color: #5993bd;
+    color: white;
+}
+
+th, tr{
+    text-align: center;
+    height: 2rem;
+}
+
+.false{
+    background-color: #f26f66;
+}
+
+.true{
+    background-color: #109e82;
+}
