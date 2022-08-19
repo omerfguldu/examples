@@ -1,0 +1,22 @@
+form {
+  padding: 15px;
+}
+
+form > * {
+  display: block;
+}
+
+.form-input {
+  margin: 2px 0 10px 0;
+}
+
+span,
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline-block;
+  margin: 2px 3px 5px 0;
+}
+
+.error {
+  color: rgb(218, 60, 60);
+}
