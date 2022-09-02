@@ -1,0 +1,100 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, #ada985 0%, #c1becb 0.01%, #d5d5d5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  width: 190rem;
+  height: 120rem;
+  background: #0a0c1b;
+  border-radius: 4rem;
+  overflow: hidden;
+}
+
+.login-container {
+  display: flex;
+  height: 100%;
+  background-color: #fff;
+  align-items: center;
+}
+
+.login-left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #a7c9b0;
+  height: 100%;
+  color: #fff;
+  width: 100%;
+  padding: 3.5rem 3rem;
+  gap: 10rem;
+}
+
+.img-logo {
+  align-self: flex-start;
+}
+
+.img-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.img-bro {
+  width: 80rem;
+}
+
+.login-left-text {
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.login-right-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-right {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.username-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.username-input-container label {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.username-input-container input {
+  height: 7rem;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+}
+
+.btn-continue {
+  height: 7rem;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 600;
+
+  background-color: #0f7070;
+}
