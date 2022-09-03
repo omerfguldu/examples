@@ -1,11 +1,22 @@
-import React from "react";
-import { Route, Routes, NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Route, Routes, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import bro from "../assets/bro.png";
 import { useTodo } from "../context/TodoContext";
 
 function Login() {
-  const { username } = useTodo();
+  const navigate = useNavigate();
+  const { setUsername } = useTodo();
+  const [inputUsername, setInputUsername] = useState();
+
+  const handleContinue = (e) => {
+    e.preventDefault();
+    if (inputUsername !== "") {
+      localStorage.setItem("username", inputUsername);
+      setUsername(inputUsername);
+      navigate("/alltodos");
+    }
+  };
 
   return (
     <div className="login-container">
@@ -21,11 +32,25 @@ function Login() {
       <div className="login-right-container">
         <div className="login-right">
           <h4 style={{ fontSize: "4rem" }}>Get started.</h4>
-          <div className="username-input-container">
+          <form className="username-input-container" onSubmit={handleContinue}>
             <label htmlFor="userNameInput">Username</label>
-            <input type="text" id="userNameInput" />
-          </div>
-          <button className="btn-continue">Continue</button>
+            <input
+              value={inputUsername || ""}
+              onChange={(e) => {
+                setInputUsername(e.target.value);
+              }}
+              type="text"
+              id="userNameInput"
+              placeholder="Enter a username"
+            />
+          </form>
+          <NavLink
+            to={"/alltodos"}
+            className={`${inputUsername ? "btn-continue" : "disabled"}`}
+            onClick={handleContinue}
+          >
+            Continue
+          </NavLink>
         </div>
       </div>
     </div>
