@@ -1,16 +1,38 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 import Spinner from "../components/Spinner";
+import { motion, AnimatePresence } from "framer-motion";
 import { AiOutlinePlus } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { useTodo } from "../context/TodoContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Todos() {
-  const { todos, isLoading } = useTodo();
+  const { todos, isLoading, setSelectedTodo, title, selectedTodo } = useTodo();
+  let clicked = false;
   const handleNewTodo = () => {
     const newTodoContainer = document.querySelector(".add-new-todo-container");
     newTodoContainer.classList.remove("hidden");
   };
+
+  const handleHamburger = () => {
+    clicked = !clicked;
+    const navMenu = document.querySelector(".menu-container");
+    if (clicked) {
+      navMenu.style.visibility = "visible";
+    } else {
+      navMenu.style.visibility = "hidden";
+    }
+  };
+
+  useEffect(() => {
+    const allTodoContainer = document.querySelectorAll(".todo-item-container");
+    setSelectedTodo(todos[0]);
+    allTodoContainer.forEach((container) => {
+      container.classList.remove("active-todo");
+      if (container.id === todos[0].id) container.classList.add("active-todo");
+    });
+  }, [todos]);
 
   if (!isLoading && (!todos || todos.length === 0)) {
     return <p>No Todos Yet</p>;
@@ -20,8 +42,11 @@ function Todos() {
     <Spinner />
   ) : (
     <div className="content-container">
+      <div className="hamburger">
+        <GiHamburgerMenu onClick={handleHamburger} />
+      </div>
       <div className="content-header">
-        <h1>All Todos</h1>
+        <h1>{title ? title : "All Todos"}</h1>
         <button onClick={handleNewTodo} className="btn-new-todo">
           {" "}
           <span>
@@ -31,9 +56,19 @@ function Todos() {
         </button>
       </div>
       <div className="content-todo">
-        {todos.map((todoItem) => (
-          <TodoItem key={todoItem.id} todo={todoItem} />
-        ))}
+        <AnimatePresence>
+          {todos.map((todoItem) => (
+            <motion.div
+              key={todoItem.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              layout
+            >
+              <TodoItem index={todoItem.id} todo={todoItem} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   );

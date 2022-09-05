@@ -6,15 +6,18 @@ export const TodoProvider = ({ children }) => {
   const [username, setUsername] = useState(localStorage.getItem("username"));
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("alltodos");
+  const [title, setTitle] = useState("All Todos");
   const [selectedTodo, setSelectedTodo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [updateTodos, setUpdateTodos] = useState(false);
 
   useEffect(() => {
     getAllTodos();
-    console.log(filter);
-  }, [filter]);
+    // setSelectedTodo(todos[0]);
+  }, [title, updateTodos]);
 
   const getAllTodos = async () => {
+    const detailContainer = document.querySelector(".detail-container");
     const data = await fetch(
       `https://${process.env.REACT_APP_API_KEY}.mockapi.io/todos`
     );
@@ -29,6 +32,8 @@ export const TodoProvider = ({ children }) => {
     if (filter === "inprogress") {
       setTodos(todoList.filter((todoItem) => !todoItem.isCompleted).reverse());
     }
+    // if (window.screen.width <= 600) detailContainer.style.visibility = "hidden";
+    console.log(todos);
     setIsLoading(false);
   };
 
@@ -46,6 +51,8 @@ export const TodoProvider = ({ children }) => {
     const data = await response.json();
 
     setTodos([data, ...todos]);
+    setUpdateTodos((prev) => !prev);
+    setFilter("alltodos");
   };
 
   const deleteTodo = async (id) => {
@@ -75,7 +82,7 @@ export const TodoProvider = ({ children }) => {
         return todo.id === id ? data : todo;
       })
     );
-    console.log(updatedItem);
+    setUpdateTodos((prev) => !prev);
   };
 
   const values = {
@@ -83,6 +90,7 @@ export const TodoProvider = ({ children }) => {
     todos,
     isLoading,
     selectedTodo,
+    title,
     setUsername,
     setTodos,
     setSelectedTodo,
@@ -90,6 +98,7 @@ export const TodoProvider = ({ children }) => {
     updateTodo,
     addTodo,
     setFilter,
+    setTitle,
   };
 
   return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;

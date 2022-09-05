@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTodo } from "../context/TodoContext";
+import { AiOutlineClose } from "react-icons/ai";
 
 function Detail() {
   const {
@@ -25,6 +26,10 @@ function Detail() {
     } else {
       alert("Please select a todo before delete an item");
     }
+    if (window.screen.width <= 600) {
+      const detailContainer = document.querySelector(".detail-container");
+      detailContainer.style.display = "none";
+    }
   };
 
   const handleUpdate = () => {
@@ -38,6 +43,15 @@ function Detail() {
     } else {
       alert("Please select a todo before update an item");
     }
+    if (window.screen.width <= 600) {
+      const detailContainer = document.querySelector(".detail-container");
+      detailContainer.style.display = "none";
+    }
+  };
+
+  const handleCloseDetail = () => {
+    const detailContainer = document.querySelector(".detail-container");
+    detailContainer.style.display = "none";
   };
 
   useEffect(() => {
@@ -50,9 +64,15 @@ function Detail() {
       <p className="username">{username}</p>
       <h2>Todo Detail</h2>
       <div className="todo-details">
-        <div>
-          <h3>Todo ID</h3>
-          <p className="todo-id">{selectedTodo ? selectedTodo.id : "-"}</p>
+        <div className="todo-detail-header">
+          <div>
+            <h3>Todo ID</h3>
+            <p className="todo-id">{selectedTodo ? selectedTodo.id : "-"}</p>
+          </div>
+          <AiOutlineClose
+            onClick={handleCloseDetail}
+            className="detail-close"
+          />
         </div>
         <div>
           <h3>Todo Content</h3>

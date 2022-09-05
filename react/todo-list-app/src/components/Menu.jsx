@@ -8,7 +8,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useTodo } from "../context/TodoContext";
 
 function Menu() {
-  const { setFilter } = useTodo();
+  const { setFilter, setTitle } = useTodo();
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("username");
@@ -18,38 +18,45 @@ function Menu() {
   return (
     <div className="menu-container">
       <img src={logo} alt="" />
-      <NavLink
-        onClick={() => setFilter("alltodos")}
-        to={"/alltodos"}
-        className={"menu-links"}
-      >
-        <FaListUl />
-        <p>All Todos</p>
-      </NavLink>
-      <NavLink
-        onClick={() => setFilter("completed")}
-        to={"/completed"}
-        className={"menu-links"}
-      >
-        <BsCheck2All />
-        <p>Completed</p>
-      </NavLink>
-      <NavLink
-        onClick={() => setFilter("inprogress")}
-        to={"/inprogress"}
-        className={"menu-links"}
-      >
-        <BsClock />
-        <p>In Progress</p>
-      </NavLink>
-      <NavLink
-        onClick={() => setFilter("alltodos")}
-        to={"/settings"}
-        className={"menu-links"}
-      >
-        <FiSettings></FiSettings>
-        <p>Settings</p>
-      </NavLink>
+      <div>
+        <NavLink
+          onClick={() => {
+            setFilter("alltodos");
+            setTitle("All Todos");
+          }}
+          to={"/alltodos"}
+          className={"menu-links"}
+        >
+          <FaListUl />
+          <p>All Todos</p>
+        </NavLink>
+        <NavLink
+          onClick={() => {
+            setFilter("completed");
+            setTitle("Completed");
+          }}
+          to={"/completed"}
+          className={"menu-links"}
+        >
+          <BsCheck2All />
+          <p>Completed</p>
+        </NavLink>
+        <NavLink
+          onClick={() => {
+            setFilter("inprogress");
+            setTitle("In Progress");
+          }}
+          to={"/inprogress"}
+          className={"menu-links"}
+        >
+          <BsClock />
+          <p>In Progress</p>
+        </NavLink>
+        <NavLink to={"/settings"} className={"menu-links"}>
+          <FiSettings></FiSettings>
+          <p>Settings</p>
+        </NavLink>
+      </div>
       <div onClick={handleLogout} className="logout">
         <AiOutlineLogout />
         <p>Logout</p>

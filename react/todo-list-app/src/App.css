@@ -7,6 +7,10 @@
   justify-content: center;
 }
 
+.hamburger {
+  display: none;
+}
+
 /* LOGIN PAGE STYLE */
 
 .main-container {
@@ -42,6 +46,7 @@
   background-color: #fff;
   padding: 4.5rem 4rem 2.5rem 4rem;
   border-radius: 2rem;
+  z-index: 99;
 }
 
 .add-todo-card h2 {
@@ -180,7 +185,7 @@
 
 .home-container {
   height: 100%;
-  margin: 4rem;
+  margin: 4rem 2rem 4rem 4rem;
   display: grid;
   grid-template-columns: auto 1fr auto;
   column-gap: 4.5rem;
@@ -246,6 +251,10 @@
   gap: 5rem;
 }
 
+.hamburger {
+  font-size: 3rem;
+}
+
 .content-header {
   display: flex;
   align-items: flex-start;
@@ -290,6 +299,11 @@
   cursor: pointer;
   margin-bottom: 3rem;
   transition: all ease 0.1s;
+}
+
+.todo-icon,
+.todo-text {
+  pointer-events: none;
 }
 
 .active-todo {
@@ -340,10 +354,21 @@
   padding: 5rem 3.5rem 3.5rem 3.5rem;
 }
 
+.detail-close {
+  color: #e23a3a;
+  font-size: 3rem;
+  display: none;
+}
+
 .todo-details h3 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+}
+
+.todo-detail-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .todo-id {
@@ -409,4 +434,82 @@
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #4f515e;
+}
+
+@media screen and (min-width: 1050px) and (max-width: 1300px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1050px) {
+  html {
+    font-size: 40%;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 40%;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .main-container {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0rem;
+  }
+
+  .menu-container {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    border-radius: 0rem 4rem 4rem 0rem;
+    top: 10rem;
+    height: 93%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .home-container {
+    margin: 3rem;
+    grid-template-columns: 1fr;
+  }
+
+  .content-todo {
+    max-height: 90vh;
+  }
+
+  .detail-container .username,
+  h2 {
+    display: none;
+  }
+
+  .detail-container {
+    /* visibility: hidden; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .detail-container select {
+    width: 100%;
+    /* display: none; */
+  }
+
+  .detail-close {
+    display: block;
+  }
+
+  .todo-details {
+  }
 }
