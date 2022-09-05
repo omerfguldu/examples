@@ -13,6 +13,12 @@ function Menu() {
   const handleLogout = () => {
     localStorage.removeItem("username");
     navigate("/login");
+    closeMenu();
+  };
+
+  const closeMenu = () => {
+    const menuContainer = document.querySelector(".menu-container");
+    menuContainer.style.visibility = "hidden";
   };
 
   return (
@@ -23,6 +29,7 @@ function Menu() {
           onClick={() => {
             setFilter("alltodos");
             setTitle("All Todos");
+            closeMenu();
           }}
           to={"/alltodos"}
           className={"menu-links"}
@@ -34,6 +41,7 @@ function Menu() {
           onClick={() => {
             setFilter("completed");
             setTitle("Completed");
+            closeMenu();
           }}
           to={"/completed"}
           className={"menu-links"}
@@ -45,6 +53,7 @@ function Menu() {
           onClick={() => {
             setFilter("inprogress");
             setTitle("In Progress");
+            closeMenu();
           }}
           to={"/inprogress"}
           className={"menu-links"}

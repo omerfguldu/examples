@@ -471,6 +471,7 @@
 
   .menu-container {
     visibility: hidden;
+    z-index: 9999;
     position: absolute;
     left: 0;
     border-radius: 0rem 4rem 4rem 0rem;
@@ -495,21 +496,39 @@
   }
 
   .detail-container {
-    /* visibility: hidden; */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: none;
   }
   .detail-container select {
     width: 100%;
-    /* display: none; */
   }
 
   .detail-close {
     display: block;
   }
 
-  .todo-details {
+  /* LOGIN SCREEN ON MOBILE */
+
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left-container {
+    height: 100%;
+  }
+
+  .login-right-container {
+    height: 100%;
+  }
+
+  .img-logo {
+    width: 20rem;
+  }
+
+  .img-bro {
+    width: 40rem;
   }
 }

@@ -16,8 +16,12 @@ function Todos() {
   };
 
   const handleHamburger = () => {
-    clicked = !clicked;
+    const detailContainer = document.querySelector(".detail-container");
+    const menuContainer = document.querySelector(".menu-container");
+    if (clicked && menuContainer.style.visibility === "hidden") clicked = false;
+    if (window.screen.width <= 600) detailContainer.style.display = "none";
     const navMenu = document.querySelector(".menu-container");
+    clicked = !clicked;
     if (clicked) {
       navMenu.style.visibility = "visible";
     } else {
@@ -26,6 +30,8 @@ function Todos() {
   };
 
   useEffect(() => {
+    const detailContainer = document.querySelector(".detail-container");
+    if (window.screen.width <= 600) detailContainer.style.display = "none";
     const allTodoContainer = document.querySelectorAll(".todo-item-container");
     setSelectedTodo(todos[0]);
     allTodoContainer.forEach((container) => {
