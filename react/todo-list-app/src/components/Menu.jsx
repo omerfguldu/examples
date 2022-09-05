@@ -18,7 +18,10 @@ function Menu() {
 
   const closeMenu = () => {
     const menuContainer = document.querySelector(".menu-container");
-    if (window.screen.width <= 600) menuContainer.style.visibility = "hidden";
+    if (window.screen.width <= 600) {
+      menuContainer.classList.remove("v-visible");
+      menuContainer.classList.add("v-hidden");
+    }
   };
 
   return (

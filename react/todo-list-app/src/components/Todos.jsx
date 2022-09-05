@@ -12,26 +12,29 @@ function Todos() {
   let clicked = false;
   const handleNewTodo = () => {
     const newTodoContainer = document.querySelector(".add-new-todo-container");
-    newTodoContainer.classList.remove("hidden");
+    newTodoContainer.classList.remove("v-hidden");
   };
 
   const handleHamburger = () => {
     const detailContainer = document.querySelector(".detail-container");
     const menuContainer = document.querySelector(".menu-container");
-    if (clicked && menuContainer.style.visibility === "hidden") clicked = false;
-    if (window.screen.width <= 600) detailContainer.style.display = "none";
+    if (clicked && menuContainer.classList.contains("v-hidden"))
+      clicked = false;
+    if (window.screen.width <= 600) detailContainer.classList.add("d-none");
     const navMenu = document.querySelector(".menu-container");
     clicked = !clicked;
     if (clicked) {
-      navMenu.style.visibility = "visible";
+      navMenu.classList.remove("v-hidden");
+      navMenu.classList.add("v-visible");
     } else {
-      navMenu.style.visibility = "hidden";
+      navMenu.classList.remove("v-visible");
+      navMenu.classList.add("v-hidden");
     }
   };
 
   useEffect(() => {
     const detailContainer = document.querySelector(".detail-container");
-    if (window.screen.width <= 600) detailContainer.style.display = "none";
+    if (window.screen.width <= 600) detailContainer.classList.add("d-none");
     const allTodoContainer = document.querySelectorAll(".todo-item-container");
     setSelectedTodo(todos[0]);
     allTodoContainer.forEach((container) => {

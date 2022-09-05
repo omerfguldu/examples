@@ -35,10 +35,6 @@
   justify-content: center;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
 .add-todo-card {
   display: flex;
   flex-direction: column;
@@ -337,7 +333,7 @@
 }
 
 .username {
-  align-self: flex-end;
+  text-align: right;
   font-size: 2.4rem;
   font-weight: 600;
   margin-bottom: 6rem;
@@ -436,9 +432,49 @@
   background-color: #4f515e;
 }
 
+/* HELPER CLASSES */
+
+.v-hidden {
+  visibility: hidden !important;
+}
+
+.v-visible {
+  visibility: visible !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+@media screen and (min-width: 1050px) {
+  .detail-container,
+  .menu-container {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .detail-container {
+    height: 74%;
+  }
+}
+
 @media screen and (min-width: 1050px) and (max-width: 1300px) {
   html {
     font-size: 50%;
+  }
+
+  .detail-container,
+  .menu-container {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .detail-container {
+    height: 74%;
   }
 }
 
@@ -446,11 +482,35 @@
   html {
     font-size: 40%;
   }
+
+  .detail-container,
+  .menu-container {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .detail-container {
+    height: 74%;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 800px) {
   html {
     font-size: 30%;
+  }
+
+  .detail-container,
+  .menu-container {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .detail-container {
+    height: 74%;
+  }
+
+  .detail-container select {
+    width: 100%;
   }
 }
 

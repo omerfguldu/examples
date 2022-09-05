@@ -8,7 +8,7 @@ function AddTodoCard() {
   const newTodoContainer = document.querySelector(".add-new-todo-container");
 
   const handleCancel = () => {
-    newTodoContainer.classList.add("hidden");
+    newTodoContainer.classList.add("v-hidden");
     setContent("");
   };
 
@@ -21,14 +21,14 @@ function AddTodoCard() {
 
       addTodo(newTodo);
       setContent("");
-      newTodoContainer.classList.add("hidden");
+      newTodoContainer.classList.add("v-hidden");
     } else {
       setShowError(true);
     }
   };
 
   return (
-    <div className="add-new-todo-container hidden">
+    <div className="add-new-todo-container v-hidden">
       <div className="add-todo-card">
         <h2>Add New Todo</h2>
         <div className="input-add">

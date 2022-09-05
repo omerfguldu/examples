@@ -11,7 +11,10 @@ function TodoItem({ index, todo }) {
     );
     setSelectedTodo(item);
     e.target.classList.add("active-todo");
-    if (window.screen.width <= 600) detailContainer.style.display = "block";
+    if (window.screen.width <= 600) {
+      detailContainer.classList.remove("d-none");
+      detailContainer.classList.add("d-block");
+    }
   };
 
   return (

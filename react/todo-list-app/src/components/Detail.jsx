@@ -28,7 +28,8 @@ function Detail() {
     }
     if (window.screen.width <= 600) {
       const detailContainer = document.querySelector(".detail-container");
-      detailContainer.style.display = "none";
+      detailContainer.classList.remove("d-block");
+      detailContainer.classList.add("d-none");
     }
   };
 
@@ -45,13 +46,15 @@ function Detail() {
     }
     if (window.screen.width <= 600) {
       const detailContainer = document.querySelector(".detail-container");
-      detailContainer.style.display = "none";
+      detailContainer.classList.remove("d-block");
+      detailContainer.classList.add("d-none");
     }
   };
 
   const handleCloseDetail = () => {
     const detailContainer = document.querySelector(".detail-container");
-    detailContainer.style.display = "none";
+    detailContainer.classList.remove("d-block");
+    detailContainer.classList.add("d-none");
   };
 
   useEffect(() => {
