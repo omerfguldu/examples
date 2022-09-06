@@ -52,10 +52,10 @@ function AddTodoCard() {
           )}
         </div>
         <div className="buttons-add-todo">
-          <button onClick={handleCancel} className="btn-outline btn-red">
+          <button onClick={handleCancel} className="btn btn-outline btn-red">
             Cancel
           </button>
-          <button onClick={handleAdd} className="btn-outline btn-green">
+          <button onClick={handleAdd} className="btn btn-outline btn-green">
             Add
           </button>
         </div>

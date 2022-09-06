@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Login from "./Login";
 import Home from "./Home";
 import AddTodoCard from "../components/AddTodoCard";
@@ -27,7 +26,7 @@ function Routing() {
                 )
               }
             />
-            <Route path={"login"} element={<Login />} />
+            <Route path={"/login"} element={<Login />} />
           </Routes>
           <Home>
             <Pages />

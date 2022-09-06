@@ -64,14 +64,16 @@ function Menu() {
           <BsClock />
           <p>In Progress</p>
         </NavLink>
-        <NavLink to={"/settings"} className={"menu-links"}>
+        <li className={"menu-links"}>
           <FiSettings></FiSettings>
           <p>Settings</p>
-        </NavLink>
+        </li>
       </div>
-      <div onClick={handleLogout} className="logout">
-        <AiOutlineLogout />
-        <p>Logout</p>
+      <div onClick={handleLogout}>
+        <button className="btn logout">
+          <AiOutlineLogout />
+          Logout
+        </button>
       </div>
     </div>
   );

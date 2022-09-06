@@ -13,7 +13,6 @@ export const TodoProvider = ({ children }) => {
 
   useEffect(() => {
     getAllTodos();
-    // setSelectedTodo(todos[0]);
   }, [title, updateTodos]);
 
   const getAllTodos = async () => {
@@ -32,8 +31,10 @@ export const TodoProvider = ({ children }) => {
     if (filter === "inprogress") {
       setTodos(todoList.filter((todoItem) => !todoItem.isCompleted).reverse());
     }
-    // if (window.screen.width <= 600) detailContainer.style.visibility = "hidden";
-    console.log(todos);
+    if (window.screen.width <= 600) {
+      detailContainer.classList.remove("d-block");
+      detailContainer.classList.add("d-none");
+    }
     setIsLoading(false);
   };
 

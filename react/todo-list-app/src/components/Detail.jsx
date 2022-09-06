@@ -103,10 +103,10 @@ function Detail() {
           </select>
         </div>
         <div className="btn-detail-container">
-          <button className="btn-outline btn-red" onClick={handleDelete}>
+          <button className="btn btn-outline btn-red" onClick={handleDelete}>
             Delete
           </button>
-          <button className="btn-outline btn-green" onClick={handleUpdate}>
+          <button className="btn btn-outline btn-green" onClick={handleUpdate}>
             Update
           </button>
         </div>

@@ -33,6 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 98;
 }
 
 .add-todo-card {
@@ -234,6 +235,9 @@
   color: #e23a3a;
   cursor: pointer;
   margin-top: 34rem;
+  border: none;
+  background-color: transparent;
+  padding: 0.5rem 0.5rem;
 }
 
 /* CONTENT CONTAINER STYLE */
@@ -389,7 +393,7 @@
 .btn-detail-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: 13rem;
+  margin-top: 13.5rem;
 }
 
 .btn-outline {
@@ -397,7 +401,7 @@
   cursor: pointer;
   background-color: #fff;
   font-size: 1.8rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .btn-red {
@@ -433,6 +437,28 @@
 }
 
 /* HELPER CLASSES */
+
+.btn {
+  /* transition: all ease 0.5s; */
+  position: relative;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.175rem;
+  transform: scale(0, 1);
+  transform-origin: 0% 100%;
+  transition: transform ease 0.3s;
+  background: #4f515e;
+}
+
+.btn:hover::after {
+  transform: scale(1, 1);
+}
 
 .v-hidden {
   visibility: hidden !important;
