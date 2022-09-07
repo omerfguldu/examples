@@ -2,6 +2,8 @@ import "./App.css";
 
 import { useState, useEffect } from "react";
 import { IntlProvider, FormattedMessage, FormattedNumber } from "react-intl";
+import { StyledButton } from "styled-button-elements";
+import "styled-button-elements/dist/index.css";
 
 const messages = {
   "tr-TR": {
@@ -34,8 +36,12 @@ function App() {
         <br />
         <br />
 
-        <button onClick={() => setLocale("tr-TR")}>Tr</button>
-        <button onClick={() => setLocale("en-US")}>En</button>
+        <StyledButton type="primary" onClick={() => setLocale("tr-TR")}>
+          Tr
+        </StyledButton>
+        <StyledButton type="default" onClick={() => setLocale("en-US")}>
+          En
+        </StyledButton>
       </IntlProvider>
     </div>
   );
