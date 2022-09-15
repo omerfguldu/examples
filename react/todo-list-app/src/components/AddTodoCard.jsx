@@ -13,7 +13,7 @@ function AddTodoCard() {
   };
 
   const handleAdd = () => {
-    if (content) {
+    if (content && content.length >= 3) {
       const newTodo = {
         content,
         isCompleted: false,
@@ -45,7 +45,9 @@ function AddTodoCard() {
           />
           {showError ? (
             <p className="error-text">
-              To add new todo please fill the text area!
+              {content.length === 0
+                ? "To add new todo please fill the text area!"
+                : "Todo content could be at least 3 characters!"}
             </p>
           ) : (
             ""
