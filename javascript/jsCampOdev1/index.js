@@ -1,7 +1,7 @@
 // FIND SUM OF DIVIDERS OF A NUMBER
 const sumOfDividers = (number) => {
   let sum = 0;
-  for (let i = 1; i < number; i++) {
+  for (let i = 1; i <= number / 2; i++) {
     if (number % i === 0) {
       sum += i;
     }
@@ -15,14 +15,16 @@ const findPrimeNumbers = (...numbers) => {
   numbers.forEach((number) => {
     let count = 0;
 
-    for (let i = 1; i <= number; i++) {
-      if (number % i === 0) {
-        count++;
+    if (number === 2 || number % 2 !== 0) {
+      for (let i = 1; i <= number; i++) {
+        if (number % i === 0) {
+          count++;
+        }
       }
     }
 
-    if (count <= 2) {
-      number === 1 ? "" : primeNumbersArray.push(number);
+    if (count === 2) {
+      primeNumbersArray.push(number);
     }
   });
   console.log(primeNumbersArray);
